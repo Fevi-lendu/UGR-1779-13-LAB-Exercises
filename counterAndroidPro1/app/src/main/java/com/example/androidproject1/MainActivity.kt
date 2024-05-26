@@ -1,55 +1,40 @@
-package com.example.counterandroidpro1;
+package com.example.counter_imperative
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-public class MainActivity extends AppCompatActivity {
+class MainActivity : AppCompatActivity() {
+    private lateinit var textViewCount: TextView
+    private lateinit var buttonIncrement: Button
+    private lateinit var buttonDecrement: Button
+    private lateinit var buttonReset: Button
 
-    private int count = 0;
-    private TextView countTextView;
-    private Button incrementButton, decrementButton, resetButton;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        textViewCount = findViewById<TextView>(R.id.textView_count)
+        buttonIncrement = findViewById<Button>(R.id.button_increment)
+        buttonDecrement = findViewById<Button>(R.id.button_decrement)
+        buttonReset = findViewById<Button>(R.id.button_reset)
 
-        countTextView = findViewById(R.id.countTextView);
-        incrementButton = findViewById(R.id.incrementButton);
-        decrementButton = findViewById(R.id.decrementButton);
-        resetButton = findViewById(R.id.resetButton);
+        var count = 0
 
-        incrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count++;
-                updateCountTextView();
-            }
-        });
+        buttonIncrement.setOnClickListener {
+            count++
+            textViewCount.text = count.toString()
+        }
 
-        decrementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (count > 0) {
-                    count--;
-                }
-                updateCountTextView();
-            }
-        });
+        buttonDecrement.setOnClickListener {
+            count--
+            textViewCount.text = count.toString()
+        }
 
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count = 0;
-                updateCountTextView();
-            }
-        });
-    }
-
-    private void updateCountTextView() {
-        countTextView.setText(String.valueOf(count));
+        buttonReset.setOnClickListener {
+            count = 0
+            textViewCount.text = count.toString()
+        }
     }
 }
