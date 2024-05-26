@@ -1,4 +1,4 @@
-package com.example.jetpacktutorial1
+package com.example.jettutor1
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

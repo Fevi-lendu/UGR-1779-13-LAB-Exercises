@@ -1,6 +1,4 @@
-package com.example.jetpackcomposecounter
-
-package com.example.jetpacktutorial1
+package com.example.jetcomposecounter
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

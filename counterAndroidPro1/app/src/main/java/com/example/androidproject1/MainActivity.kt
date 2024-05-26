@@ -1,4 +1,4 @@
-package com.example.counterandroidproject1;
+package com.example.counterandroidpro1;
 
 import android.os.Bundle;
 import android.view.View;
